@@ -1,0 +1,157 @@
+{
+  "topics": [
+    {
+      "id": "preop_neonate",
+      "title": "Preoperative Preparation in Neonates",
+      "description": "Neonate not feeding with aspiration risk before surgery.",
+      "tags": ["Neonate", "Pre-op", "GI"],
+      "entryType": "Situation",
+      "entryPoints": {
+        "symptoms": ["baby not feeding", "frothing", "aspiration"],
+        "diagnoses": ["EA/TEF"],
+        "situations": ["pre-op stabilization", "nicu transfer"]
+      },
+      "filters": {
+        "age": "Neonate",
+        "urgency": "Emergency",
+        "system": "GI",
+        "setting": "NICU"
+      },
+      "decisionFlow": [
+        {
+          "id": "start",
+          "question": "Is airway compromised?",
+          "options": [
+            { "label": "Yes", "next": "airway_manage" },
+            { "label": "No", "next": "stabilize" }
+          ]
+        },
+        {
+          "id": "airway_manage",
+          "action": "Suction upper pouch, position upright, call anesthesia support now."
+        },
+        {
+          "id": "stabilize",
+          "question": "Is oxygen saturation below 92%?",
+          "options": [
+            { "label": "Yes", "next": "oxygen_path" },
+            { "label": "No", "next": "iv_path" }
+          ]
+        },
+        {
+          "id": "oxygen_path",
+          "action": "Start oxygen, monitor blood gases, reassess in 5 minutes."
+        },
+        {
+          "id": "iv_path",
+          "action": "Warm baby, start IV fluids with electrolytes, keep NPO."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Airway",
+          "detail": "Position 30-45 degrees upright and maintain continuous upper pouch suction.",
+          "resourceLimited": "Use frequent manual suction every 5-10 minutes if Replogle tube unavailable."
+        },
+        {
+          "title": "Fluids",
+          "detail": "Start isotonic IV fluids with glucose and electrolyte correction.",
+          "resourceLimited": "Use available crystalloid and monitor urine output closely."
+        },
+        {
+          "title": "Positioning",
+          "detail": "Avoid supine position to reduce aspiration risk.",
+          "resourceLimited": "Keep head elevated with rolled towel support if no pediatric bed wedge."
+        }
+      ],
+      "investigations": ["Echocardiography", "Renal ultrasound", "Blood gases"],
+      "risks": ["Aspiration pneumonia", "Sepsis", "Hypothermia"],
+      "pearls": ["Stabilize before transfer", "Continuous suction prevents aspiration"],
+      "pitfalls": ["Rushing to surgery", "Ignoring thermal regulation"],
+      "mnemonic": "WARM: Warmth, Airway, Replogle, Metabolic support",
+      "parentExplanation": "Your baby needs careful stabilization first so surgery is safer and recovery is smoother.",
+      "mentorTip": "If airway risk is unclear, treat as high risk until proven otherwise."
+    },
+    {
+      "id": "bilious_vomiting",
+      "title": "Bilious Vomiting in Infant",
+      "description": "Green vomit requires urgent exclusion of malrotation or volvulus.",
+      "tags": ["Infant", "Emergency", "GI"],
+      "entryType": "Symptom",
+      "entryPoints": {
+        "symptoms": ["green vomit baby", "bilious vomiting"],
+        "diagnoses": ["malrotation"],
+        "situations": ["er triage"]
+      },
+      "filters": {
+        "age": "Infant",
+        "urgency": "Emergency",
+        "system": "GI",
+        "setting": "ER"
+      },
+      "decisionFlow": [],
+      "steps": [],
+      "investigations": [],
+      "risks": [],
+      "pearls": [],
+      "pitfalls": [],
+      "mnemonic": "",
+      "parentExplanation": "",
+      "mentorTip": ""
+    },
+    {
+      "id": "postop_distension",
+      "title": "Post-op Distension",
+      "description": "Assess obstruction, ileus, and sepsis in the first 24 hours.",
+      "tags": ["Child", "Urgent", "General surgery"],
+      "entryType": "Situation",
+      "entryPoints": {
+        "symptoms": ["distension", "not passing stool"],
+        "diagnoses": ["ileus"],
+        "situations": ["post-op ward"]
+      },
+      "filters": {
+        "age": "Child",
+        "urgency": "Urgent",
+        "system": "General surgery",
+        "setting": "Ward"
+      },
+      "decisionFlow": [],
+      "steps": [],
+      "investigations": [],
+      "risks": [],
+      "pearls": [],
+      "pitfalls": [],
+      "mnemonic": "",
+      "parentExplanation": "",
+      "mentorTip": ""
+    },
+    {
+      "id": "blunt_trauma",
+      "title": "Blunt Abdominal Trauma",
+      "description": "Rapid trauma survey with hemorrhage prioritization.",
+      "tags": ["Child", "Emergency", "Trauma"],
+      "entryType": "Diagnosis",
+      "entryPoints": {
+        "symptoms": ["abdominal pain trauma", "tachycardia"],
+        "diagnoses": ["blunt trauma"],
+        "situations": ["er trauma bay"]
+      },
+      "filters": {
+        "age": "Child",
+        "urgency": "Emergency",
+        "system": "Trauma",
+        "setting": "ER"
+      },
+      "decisionFlow": [],
+      "steps": [],
+      "investigations": [],
+      "risks": [],
+      "pearls": [],
+      "pitfalls": [],
+      "mnemonic": "",
+      "parentExplanation": "",
+      "mentorTip": ""
+    }
+  ]
+}
