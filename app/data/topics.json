@@ -89,15 +89,60 @@
         "system": "GI",
         "setting": "ER"
       },
-      "decisionFlow": [],
-      "steps": [],
-      "investigations": [],
-      "risks": [],
-      "pearls": [],
-      "pitfalls": [],
-      "mnemonic": "",
-      "parentExplanation": "",
-      "mentorTip": ""
+      "decisionFlow": [
+        {
+          "id": "start",
+          "question": "Is the infant hemodynamically unstable?",
+          "options": [
+            { "label": "Yes", "next": "resuscitate" },
+            { "label": "No", "next": "decompress" }
+          ]
+        },
+        {
+          "id": "resuscitate",
+          "action": "Immediate ABC support, two IV lines, fluid bolus 10-20 mL/kg, urgent surgical review."
+        },
+        {
+          "id": "decompress",
+          "question": "Has upper GI contrast study been done?",
+          "options": [
+            { "label": "Yes", "next": "review_imaging" },
+            { "label": "No", "next": "order_imaging" }
+          ]
+        },
+        {
+          "id": "order_imaging",
+          "action": "Keep NPO, insert NG tube, send urgent upper GI contrast to exclude volvulus."
+        },
+        {
+          "id": "review_imaging",
+          "action": "If volvulus suspected, activate OR pathway immediately."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Airway",
+          "detail": "Assess airway and breathing, provide oxygen if saturation less than 94%.",
+          "resourceLimited": "Use nasal oxygen and frequent reassessment when continuous monitoring is limited."
+        },
+        {
+          "title": "Fluids",
+          "detail": "Start isotonic fluids, correct electrolytes, and monitor perfusion hourly.",
+          "resourceLimited": "Use available crystalloid and track capillary refill, urine output, and pulse trends."
+        },
+        {
+          "title": "Decompression",
+          "detail": "Insert NG tube for gastric decompression and keep strict NPO.",
+          "resourceLimited": "If pediatric tube unavailable, use smallest safe tube and low intermittent suction."
+        }
+      ],
+      "investigations": ["Upper GI contrast study", "Blood gases", "Serum lactate", "CBC and electrolytes"],
+      "risks": ["Midgut volvulus with bowel ischemia", "Septic shock", "Aspiration"],
+      "pearls": ["Treat all bilious vomiting as surgical emergency until excluded", "Early decompression reduces aspiration risk"],
+      "pitfalls": ["Waiting for repeated vomiting before escalation", "Giving oral feeds during evaluation"],
+      "mnemonic": "GREEN: Gastric decompression, Resuscitate, Exclude volvulus, Escalate, No feeds",
+      "parentExplanation": "Green vomiting can indicate bowel twisting. We must check urgently and keep your baby safe before surgery if needed.",
+      "mentorTip": "Time-to-imaging and time-to-OR are the key metrics. Escalate early if perfusion worsens."
     },
     {
       "id": "postop_distension",
@@ -116,15 +161,60 @@
         "system": "General surgery",
         "setting": "Ward"
       },
-      "decisionFlow": [],
-      "steps": [],
-      "investigations": [],
-      "risks": [],
-      "pearls": [],
-      "pitfalls": [],
-      "mnemonic": "",
-      "parentExplanation": "",
-      "mentorTip": ""
+      "decisionFlow": [
+        {
+          "id": "start",
+          "question": "Is there fever, tachycardia, or worsening pain?",
+          "options": [
+            { "label": "Yes", "next": "sepsis_screen" },
+            { "label": "No", "next": "obstruction_check" }
+          ]
+        },
+        {
+          "id": "sepsis_screen",
+          "action": "Start sepsis bundle, broad-spectrum antibiotics, and senior review now."
+        },
+        {
+          "id": "obstruction_check",
+          "question": "Is NG output high with no stool/flatus?",
+          "options": [
+            { "label": "Yes", "next": "possible_obstruction" },
+            { "label": "No", "next": "likely_ileus" }
+          ]
+        },
+        {
+          "id": "possible_obstruction",
+          "action": "Urgent imaging and surgical reassessment for mechanical obstruction."
+        },
+        {
+          "id": "likely_ileus",
+          "action": "Supportive care: optimize fluids, electrolytes, pain strategy, and mobilization."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Airway and breathing",
+          "detail": "Check respiratory effort and oxygen saturation; splinting pain can reduce ventilation.",
+          "resourceLimited": "Use bedside respiratory checks and pulse oximetry spot monitoring if continuous monitor unavailable."
+        },
+        {
+          "title": "Fluids and electrolytes",
+          "detail": "Replace NG losses, correct potassium and chloride, chart strict input/output.",
+          "resourceLimited": "Use clinical hydration signs and timed urine checks where lab turnaround is delayed."
+        },
+        {
+          "title": "Positioning and mobilization",
+          "detail": "Head-up position, early mobilization, and pain control to reduce ileus duration.",
+          "resourceLimited": "Encourage assisted turning and sitting if formal physiotherapy is unavailable."
+        }
+      ],
+      "investigations": ["Abdominal X-ray", "CBC and CRP", "Electrolytes", "Point-of-care ultrasound"],
+      "risks": ["Anastomotic leak", "Intra-abdominal sepsis", "Electrolyte derangement"],
+      "pearls": ["Trend vitals and NG output together", "Electrolyte correction often reverses ileus"],
+      "pitfalls": ["Masking deterioration with repeated opioids", "Delaying escalation despite red flags"],
+      "mnemonic": "DRAIN: Distension, Review vitals, Assess NG, Investigate, Notify senior",
+      "parentExplanation": "After surgery, tummy swelling can happen, but we are checking carefully for blockage or infection so we can treat early.",
+      "mentorTip": "Do not anchor on ileus. Rising heart rate plus pain equals reassess for leak or sepsis."
     },
     {
       "id": "blunt_trauma",
@@ -143,15 +233,60 @@
         "system": "Trauma",
         "setting": "ER"
       },
-      "decisionFlow": [],
-      "steps": [],
-      "investigations": [],
-      "risks": [],
-      "pearls": [],
-      "pitfalls": [],
-      "mnemonic": "",
-      "parentExplanation": "",
-      "mentorTip": ""
+      "decisionFlow": [
+        {
+          "id": "start",
+          "question": "Is the child hypotensive or with altered perfusion?",
+          "options": [
+            { "label": "Yes", "next": "hemorrhage_protocol" },
+            { "label": "No", "next": "focused_assessment" }
+          ]
+        },
+        {
+          "id": "hemorrhage_protocol",
+          "action": "Activate massive transfusion protocol and urgent trauma surgery call."
+        },
+        {
+          "id": "focused_assessment",
+          "question": "FAST positive or peritonitis present?",
+          "options": [
+            { "label": "Yes", "next": "operative_path" },
+            { "label": "No", "next": "ct_path" }
+          ]
+        },
+        {
+          "id": "operative_path",
+          "action": "Prepare for operative management with ongoing resuscitation."
+        },
+        {
+          "id": "ct_path",
+          "action": "Proceed to contrast CT and non-operative monitoring if stable."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Airway and C-spine",
+          "detail": "Secure airway if compromised and maintain cervical spine precautions.",
+          "resourceLimited": "Prioritize jaw thrust, manual stabilization, and early transfer if advanced airway support is limited."
+        },
+        {
+          "title": "Circulation",
+          "detail": "Two large-bore IV lines, blood products as needed, and frequent perfusion checks.",
+          "resourceLimited": "Use warmed crystalloid while arranging blood and monitor mental status and pulse pressure trends."
+        },
+        {
+          "title": "Exposure and reassessment",
+          "detail": "Full exposure for injuries, then prevent hypothermia and reassess every 5-10 minutes.",
+          "resourceLimited": "Use warm blankets and serial focused exams when imaging access is delayed."
+        }
+      ],
+      "investigations": ["FAST ultrasound", "CBC and coagulation profile", "Type and crossmatch", "Contrast CT abdomen if stable"],
+      "risks": ["Hemorrhagic shock", "Missed hollow viscus injury", "Hypothermia and coagulopathy"],
+      "pearls": ["Trend lactate and perfusion repeatedly", "A stable child can deteriorate quickly after blunt trauma"],
+      "pitfalls": ["Single early normal exam causing delay", "Transporting unstable patient to CT"],
+      "mnemonic": "STOP: Stabilize, Triage bleeding, Operate when needed, Prevent hypothermia",
+      "parentExplanation": "We are checking for internal injury and bleeding. We will act quickly if surgery is needed and keep you updated at each step.",
+      "mentorTip": "In pediatric trauma, serial reassessment is as important as the first exam."
     }
   ]
 }
